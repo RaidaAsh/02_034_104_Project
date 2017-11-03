@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block title %}Bill{% endblock %}
+{% block content %}
+
+<div class="container">
+  <div class="row valign-wrapper">
+<form class="col s12" method="post" action="/bill/success/">{% csrf_token %}
+      <div class="col s6 offset-s3 valign">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text" style="vertical-align: left">
+
+          <span class="card-title">New Bill</span>
+
+    <div class="input-field col s4 offset-s8">
+    <div class="row">
+    
+  <input id="date" type="date" name="date" value="{{today.year}}-{{today.month}}-{{today.day}}"  style="color: white;"/>  
+  </div>
+</div>
+
+<div class="row">    
+<div class="input-field col s10 offset-s1">
+          <input type="text" id="autocomplete-input " class="autocomplete validate" name="member_name" autocomplete="off">
+          <label for="autocomplete-input">Member Name</label>
+          
+</div>
+  </div>
+  <div class="row">
+           <div class="input-field col s10 offset-s1">
+           
+<select id="lounge_name" name="lounge_name">
+{% for lounge in lounges %}
+           <option value="{{lounge}}">{{lounge}}</option>
+{% endfor %}
+</select>
+<label for="lounge_name">
+           <span>Lounge Name<sup>*</sup>:</span>
+           </label>
+           </div>
+           </div>
+
+    
+ <script>
+ 
+ var member_name = {{members|safe}}
+$(document).ready(function(){
+$('input.autocomplete').autocomplete({
+    data: member_name
+  });
+});
+$(document).ready(function() {
+               $('select').material_select();
+               });
+ </script>
+ {% load static %}
+<script src="{% static 'js/addInput.js' %}" language="Javascript" type="text/javascript"></script>
+    
+    <div class="input-field col s6 offset-s3">
+     <div id="dynamicFoodInput">
+            
+     </div>
+     </div>
+     
+     <div class="col s10 offset-s1">
+     <div class="left-align ">
+     <br>
+     <br>
+     <span style="color: #bdbdbd;" >Add an item:</span>
+     </div>
+     <select id="fooditem" name="fooditem" onchange="addInput('dynamicFoodInput');">
+     {% for food in foods %}
+     <option value="{{food.name}}">{{food.name}}</option>
+     {% endfor %}
+     </select>
+     </div>
+
+     
+<div class="row">
+  <div class="input-field col s6 offset-s3">
+
+<button class="btn waves-effect waves-light" type="submit" name="action">Submit
+    <i class="material-icons right">send</i>
+  </button>
+  
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</form>
+</div>
+
+</div>   
+
+{% endblock %}
+        
+        

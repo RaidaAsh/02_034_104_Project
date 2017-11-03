@@ -1,0 +1,22 @@
+{% include "lounge/loungeHome.html" %}
+<!--{% block title %}Results{% endblock %} -->
+{% block content %}
+<style>
+body
+{
+    color: white;
+}
+
+</style>
+<br>
+<div>
+<table border = "1" align = "center" > 
+
+<tr> <td> <b> Lounge ID </b></td><td> <b> Lounge Name </b> </td> </tr>
+{% for i in lounge %}
+    <tr> <td> <b> {{i.id}}</b></td><td> <b> {{i.name}} </b> </td> </tr>
+  {% endfor %}
+</table>
+</div>
+{% endblock %}
+

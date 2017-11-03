@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+<!--{% block title %}Success{% endblock %} -->
+{% block content %}
+
+
+<body>
+<br>
+
+<div class="container">
+  <div class="row valign-wrapper">
+    <div class="col s6 offset-s3 valign">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text" style="vertical-align: left">
+
+          <span class="card-title">Bill Created successfully</span>
+
+<span> Member Name: {{ name }} </span><br>
+<span> Issue Date: {{ date }} </span>
+
+<br>
+<span> Total Cost: {{ cost }} </span>
+<br>
+<table class="highlight"> 
+
+<thread><tr> <th>Name</th><th>Quantity</th></tr></thread>
+<tbody>
+{% for foods in food %}
+    <tr> <td>{{foods.name}}</td><td>{{foods.quantity}}</th><th></tr>
+  {% endfor %}
+  </tbody>
+  
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<form method="post" action="/mail/sendMail/">{% csrf_token %}
+<input type="hidden" id="member_name" name="member_name" value = "{{name}}">
+<input type="hidden" id="message" name="message" value = '<div class="container"><div class="row valign-wrapper"><div class="col s6 offset-s3 valign"><div class="card blue-grey darken-1"><div class="card-content white-text" style="vertical-align: left"><b>Member Name: </b>{{ name }} </span><br><br><span><b> Issue Date: </b>{{ date }} </span><br><span><b> Total Cost: </b>{{ cost }} </span><br><br><table><tbody><tr> <td><b>Name</b></td><td><b>Quantity</b></td></tr>{% for foods in food %}<tr><td>{{foods.name}}</td><td>{{foods.quantity}}</th><th></tr>{% endfor %}</tbody></table></div></div></div></div></div>'>
+<input type="hidden" id="subject" name="subject" value = "{{date}}">
+<div class="fixed-action-btn horizontal click-to-toggle">
+<button type="submit" class="btn-floating btn-large waves-effect waves-light red"><i title="Send Mail" class="material-icons">email</i></button>
+</form>
+</div>
+</body>
+
+{% endblock %}

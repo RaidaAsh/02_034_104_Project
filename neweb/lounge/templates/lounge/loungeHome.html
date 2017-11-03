@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %}Lounge{% endblock %}
+
+{% block content %}
+<style>
+#txt1 
+{
+    
+    font-size: 17px;
+}
+a
+{
+    color : white;
+}
+table.highlight tbody tr:hover {
+    background-color: #26a69a !important;
+}
+input[type=text] {
+    width: 90px;
+    height: 40px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    font: 1em consolas;
+    padding: 12px 20px 12px 20px;
+    -webkit-transition: width 0.2s ease-in-out;
+    transition: width 0.2s ease-in-out;
+}
+input[type=text]:focus {
+    width: 100%;
+}
+</style>
+
+<div style="display: inline-block;position: absolute; right: 130px; top:167px;";>
+<form method="POST" action="/lounge/search/">
+{% csrf_token %}
+<input class="browser-default" type="text" name="textfield" placeholder="Search with name or id.."><br>
+
+</form>
+
+</div>
+</div>
+<br>
+<div class="center-align">
+<div class="container">
+  <div class="row valign-wrapper">
+    <div class="col s8 offset-s2 valign">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">List of Lounge</span>
+
+
+<table class="highlight"> 
+
+<thread><tr> <th>ID</th><th>Name</th><th>Edit</th><th>Delete</th><th>Add Game</th></tr></thread>
+<tbody>
+{% for lounges in lounge %}
+    <tr> <td><a>{{lounges.id}}</a></td><td><a id="txt1" href="/lounge/details/{{lounges.id}}">{{lounges.name}}<a></th><th><a href="/lounge/update/{{lounges.id}}"><i class="small material-icons" style="color: #81c784">edit</i> </a></th><th><a href="/lounge/delete/{{lounges.id}}"><i class="small material-icons" style="color: #e57373">delete</i></a> </th><th><a href="/lounge/add/game/{{lounges.id}}"><i class="small material-icons" style="color: #d7ccc8">add</i></a> </th></tr>
+  {% endfor %}
+  </tbody>
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed-action-btn horizontal click-to-toggle">
+    <a href="/lounge/add" class="btn-floating btn-large  waves-effect waves-light red">
+      <i class="large material-icons">add</i>
+    </a>
+  </div>
+{% endblock %}
+<hr>
+

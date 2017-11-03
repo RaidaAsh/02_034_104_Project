@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Update Game{% endblock %}
+
+{% block content %}
+
+    <script>
+   $(document).ready(function() {
+    $('select').material_select();
+  });
+  </script>
+  <body>
+	<br>
+  <div class="container">
+  <div class="row valign-wrapper">
+    <div class="col s8 offset-s2 valign">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text" style="vertical-align: middle">
+          <span class="card-title">Edit Game</span>
+<div class="row">
+    
+    <form method="post" action="/game/update/success/"> {% csrf_token %}
+    
+    <small style="color:white"> <i> Leave out the fields which do not require updating  </i> </small>
+    <div style="color:red">{{ warning }} <br> </div>
+    <section>
+    <div class="input-field col s10 offset-s1">
+    
+    
+      <label for="name" data-error="Name cannot be empty'" data-success="">
+        <span>Name: </span>
+            
+      </label>
+      <input type="text" id="name" name="gamename" value="{{ game.name }}" class="validate" required="" aria-required="true">
+    </div>
+	<div class="input-field col s10 offset-s1">
+    
+    
+      <label for="fee" data-error="Fee cannot be empty'" data-success="">
+        <span>Fee: </span>
+            
+      </label>
+      <input type="number" id="fee" name="gamefee" value="{{ game.fee }}"  class="validate" required="" aria-required="true">
+    </div>
+</section>
+<br>
+<input type="hidden" id="gameid" name="gameid" value = "{{game.id}}"><button class="waves-effect waves-light btn" type="submit" >Update Game</button>
+
+    </form>
+    
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+  </body>
+
+{% endblock %}

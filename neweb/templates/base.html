@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    {% load static %}
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" type='text/css' href="{% static 'css/materialize.min.css' %}" media="screen,projection"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+        
+
+  <meta charset="utf-8">
+  <title>{% block title %}DU Club{% endblock %}</title>
+<style>
+input[type=text] {
+    width: 90px;
+    height: 40px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    font: 1em consolas;
+    padding: 12px 20px 12px 20px;
+    -webkit-transition: width 0.2s ease-in-out;
+    transition: width 0.2s ease-in-out;
+}
+input[type=text]:focus {
+    width: 100%;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-text-fill-color: white !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+    h2 {
+        font-size: 24px;
+    }
+    body {
+/* 	background-image: url(https://i.ytimg.com/vi/fNcORgbMoYA/maxresdefault.jpg); */
+	background-color: white;
+        background-size: 1600px 900px;
+        background-repeat: no repeat;
+        margin: 0px;
+    } 
+    header
+    {
+        color: white;
+        
+    }
+.btncls{
+    background-color:#ffffff;
+    border: #ffffff;
+  	font-family: Arial, Geneva, Arial, Helvetica,  sans-serif;
+	font-size: 15px;
+    color: #26a69a;
+    letter-spacing: 1px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: normal;
+    
+    border-radius: 4px;
+    line-height: 1.5;
+    text-decoration:none;
+}
+.btncls:hover{
+    background-color:#26a69a;
+    border: #26a69a;
+  	font-family: Arial, Geneva, Arial, Helvetica,  sans-serif;
+	font-size: 15px;
+    color: #ffffff;
+    letter-spacing: 1px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: normal;
+    
+    border-radius: 4px;
+    line-height: 1.5;
+    text-decoration:none;
+}
+
+</style>
+</head>
+
+<body>
+  <center>  
+  <header>
+    <h2 align="left" style="margin: 25px 10px 5px 25px;font: 1em consolas;font-size: 28px;"><b style="color:black;">DU Club</b></h2>
+    {% if user.is_authenticated %}
+<div align ="left" style="margin: 5px 10px 20px 25px; color: black;">
+      Welcome to the club, {{ user.username }}! <br> <br>
+      <a href="{% url 'logout' %}"><button class="waves-effect waves-light btn">Logout</button></a>
+</div>
+      
+  {% include "menubar.html" %}
+  
+  <footer>
+   <!--<a href="http://simpleisbetterthancomplex.com">simpleisbetterthancomplex.com</a> -->
+  </footer>
+  
+    {% else %}
+<p align ="left">
+      <a href="{% url 'login' %}"><button class="waves-effect waves-light btn">Log in</button></a>
+</p>
+    
+    {% endif %}
+  </header>
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+  </center>
+</body>
+</html>

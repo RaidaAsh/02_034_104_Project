@@ -1,0 +1,70 @@
+{% extends "food/foodbar.html" %}
+<!--{% block title %}Details{% endblock %} -->
+{% block content %}
+
+<style>
+
+a
+{
+    color : #037CC1;
+}
+#txt1{
+ font-size:18px;
+ line-height:2px;
+}
+.material-icons{
+    display: inline-flex;
+    vertical-align: top;
+}
+</style>
+
+<br>
+<div class="container" align="left">
+  <div class="row valign-wrapper">
+    <div class="col s6 offset-s3 valign">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text" style="vertical-align: middle">
+
+        {{message}}
+        {% if "Not Available" in food.available %}
+        <span class="new badge red" data-badge-caption=" ">{{food.available}}</span>
+        {% else %}
+        <span class="new badge green" data-badge-caption=" ">{{food.available}}</span>
+        {% endif %}
+          <span class="card-title">{{food.name}}</span>
+
+<p>
+
+Price: {{food.price}} TK
+
+<br>
+<br><span id="txt1">Available Days: </span> 
+<br>
+
+{% for days in food.days %}
+    <i class="tiny material-icons" >subdirectory_arrow_right</i> {{days}}
+    <br>
+{% endfor %}
+
+<br><span id="txt1">Available Hours: </span>
+<br>
+
+{% for times in food.times %}
+    <i class="tiny material-icons" >subdirectory_arrow_right</i> {{times}}
+    <br>
+{% endfor %}
+<div class="fixed-action-btn horizontal click-to-toggle">
+    <a href="/food/edit/{{food.name}}" class="btn-floating btn-large  waves-effect waves-light red">
+      <i class="large material-icons">mode_edit</i>
+    </a>
+  </div>
+</p>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}
+

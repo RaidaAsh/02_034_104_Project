@@ -1,0 +1,56 @@
+{% include "food/foodbar.html" %}
+<!--{% block title %}Available Foods{% endblock %} -->
+{% block content %}
+
+<style>
+#txt1 
+{
+    
+    font-size: 17px;
+}
+a
+{
+    color : white;
+}
+table.highlight tbody tr:hover {
+    background-color: #26a69a !important;
+}
+</style>
+
+<br>
+<div class="center-align">
+<div class="container">
+  <div class="row valign-wrapper">
+    <div class="col s8 offset-s2 valign">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+        {% if currentDay in "All" %}
+          <span class="card-title">List of Foods</span>
+        {% else %}
+          <span class="card-title">{{currentDay}}</span>
+        {% endif %}
+<table class="highlight responsive-table"> 
+
+<thread><tr> <th>Name</th><th>Price</th><th>Edit</th><th>Delete</th></tr></thread>
+<tbody>
+{% for foods in food %}
+    <tr> <td><a id="txt1" href="/food/details/{{foods.name}}">{{foods.name}}</a></td><td>{{foods.price}}</th><th><a href="/food/edit/{{foods.name}}"><i class="small material-icons" style="color: #81c784">edit</i> </a></th><th><a href="/food/delete/{{foods.name}}/"><i class="small material-icons" style="color: #e57373">delete</i></a> </th></tr>
+  {% endfor %}
+  </tbody>
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="fixed-action-btn horizontal click-to-toggle">
+    <a href="/food/add/" class="btn-floating btn-large  waves-effect waves-light red">
+      <i class="large material-icons">add</i>
+    </a>
+  </div>
+{% endblock %}
+
+

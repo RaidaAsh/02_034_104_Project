@@ -1,0 +1,80 @@
+
+{% block content %} 
+
+<style>
+h2
+{
+    color: white;
+}
+h3
+{
+    color: white; 
+}
+button1 {
+    background-color: transparent;
+    background-repeat:no-repeat;
+    border: transparent;
+    cursor: pointer;
+    overflow: hidden;
+    outline: transparent;
+    color: white; 
+   text-decoration: none;
+padding: 4%;
+font-size: 20px;
+
+}
+
+/* https://www.w3schools.com/css/css_navbar.asp */
+
+ul {
+    list-style-type: none;
+    margin: 0px 0px;
+    padding: 0px 0px;
+    overflow: hidden;
+    position: relative;
+    
+}
+
+li {
+    position: relative;
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    
+    text-align: center;
+    padding: 15px 40px;
+    text-decoration: none;
+}
+a {
+    font: 1em consolas;
+    font-size: 20px
+    
+}
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #26a69a;
+}
+
+
+</style>
+
+<ul style="background-color: #333;">
+  <div style="position: absolute">
+  <li><a href="/">Home</a></li>
+  <li><a href="/food/All">Food</a></li>
+  <li><a href="/members/">Members</a></li>
+  <li><a href="/lounge/">Lounge</a></li>
+  <li><a href="/game/">Game</a></li>
+  <li><a href="/bill/">Bill</a></li>
+  <li><a href="/charts/">Statistics</a></li>
+  <li><a href="/mail/">Mail</a></li>
+  </div>
+  <li style="float:right"><a class="active">About</a></li>
+</ul>
+
+
+ 
+{% endblock %}

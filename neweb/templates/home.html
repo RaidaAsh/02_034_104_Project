@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+
+<div class="w3-content" style="max-width:400px">
+  <div class="mySlides w3-container w3-red">
+    
+   
+  </div>
+  {% load static %}
+
+ <img class="mySlides" src={% static "du.jpg" %}  alt="My image" style="width:100%">
+ <img class="mySlides" src={% static "abc.jpg" %}  alt="My image" style="width:200%">
+ <img class="mySlides" src={% static "ga.jpg" %}  alt="My image" style="width:200%">
+ <img class="mySlides" src={% static "ef.jpg" %} alt="My image" style="width:200%">
+ <img class="mySlides" src={% static "car.jpg" %} alt="My image" style="width:200%">
+ <img class="mySlides" src={% static "ra.jpg" %} alt="My image" style="width:200%">
+ <img class="mySlides" src={% static "tsc.jpg" %} alt="My image" style="width:200%">
+ <img class="mySlides" src={% static "ya.jpg" %} alt="My image" style="width:200%">
+<img class="mySlides" src={% static "bus.jpg" %} alt="My image" style="width:200%">
+ <img class="mySlides" src={% static "mo.jpg" %} alt="My image" style="width:200%">
+<img class="mySlides" src={% static "doy.jpg" %} alt="My image" style="width:200%">
+<img class="mySlides" src={% static "fbs.jpg" %} alt="My image" style="width:200%">
+<img class="mySlides" src={% static "iba.jpg" %} alt="My image" style="width:200%">
+<img class="mySlides" src={% static "du.jpg" %}  alt="My image" style="width:100%">
+ <img class="mySlides" src={% static "abc.jpg" %}  alt="My image" style="width:200%">
+ <img class="mySlides" src={% static "ga.jpg" %}  alt="My image" style="width:200%">
+ <img class="mySlides" src={% static "ef.jpg" %} alt="My image" style="width:200%">
+ <img class="mySlides" src={% static "car.jpg" %} alt="My image" style="width:200%">
+ <img class="mySlides" src={% static "ra.jpg" %} alt="My image" style="width:200%">
+ <img class="mySlides" src={% static "tsc.jpg" %} alt="My image" style="width:200%">
+ <img class="mySlides" src={% static "ya.jpg" %} alt="My image" style="width:200%">
+<img class="mySlides" src={% static "bus.jpg" %} alt="My image" style="width:200%">
+ <img class="mySlides" src={% static "mo.jpg" %} alt="My image" style="width:200%">
+<img class="mySlides" src={% static "doy.jpg" %} alt="My image" style="width:200%">
+<img class="mySlides" src={% static "fbs.jpg" %} alt="My image" style="width:200%">
+<img class="mySlides" src={% static "iba.jpg" %} alt="My image" style="width:200%"> 
+
+</div>
+
+<script>
+var slideIndex = 1;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none"; 
+    }
+    slideIndex++;
+    if (slideIndex > x.length) {slideIndex = 1} 
+    x[slideIndex-1].style.display = "block"; 
+    setTimeout(carousel, 1000); 
+}
+</script>
+{% endblock %}
+
+
+
+
+
+
+

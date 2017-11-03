@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}Mail{% endblock %}
+{% block content %}
+<br>
+<div class="container">
+  <div class="row valign-wrapper">
+<form class="col s12" method="post" action="/mail/sendMail/">{% csrf_token %}
+      <div class="col s6 offset-s3 valign">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text" style="vertical-align: left">
+
+          <span class="card-title">Send Mail</span>
+
+<div class="row">    
+<div class="input-field col s10 offset-s1">
+          <input type="text" id="autocomplete-input" class="autocomplete" name="member_name" autocomplete="off">
+          <label for="autocomplete-input">Member Name</label>
+          
+</div>
+ <script>
+ 
+ var member_name = {{members|safe}}
+$(document).ready(function(){
+$('input.autocomplete').autocomplete({
+    data: member_name
+  });
+});
+$(document).ready(function() {
+               $('select').material_select();
+               });
+ </script>
+<form method="POST">
+     <div class="input-field col s10 offset-s1">
+          <input type="text" name="subject" id="subject"> <label for="subject">Subject</label>
+     </div>
+<br>
+<div class="row">
+    
+      
+        <div class="input-field col s10 offset-s1">
+          <i class="material-icons prefix">mode_edit</i>
+          <textarea id="message" name="message" class="materialize-textarea"></textarea>
+          <label for="icon_prefix2">Message</label>
+        </div>
+      </div>
+    
+  
+</form>
+     
+	<div class="row">
+		<div class="input-field col s6 offset-s3">
+
+			<button class="btn waves-effect waves-light" type="submit" name="action">Submit
+		<i class="material-icons right">send</i>
+			</button>
+
+		</div>
+		
+		
+		
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</form>
+</div>
+
+</div>   
+
+{% endblock %}
+        

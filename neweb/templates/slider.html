@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+
+<body>
+
+
+<div class="w3-content" style="max-width:400px">
+  <div class="mySlides w3-container w3-red">
+    
+  </div>
+    
+<img class="mySlides" src="du.jpg" style="width:100%">
+<img class="mySlides" src="ga.jpg" style="width:200%">
+<img class="mySlides" src="ef.jpg" style="width:200%">
+<img class="mySlides" src="abc.jpg" style="width:200%">
+<img class="mySlides" src="car.jpg" style="width:200%">
+<img class="mySlides" src="ra.jpg" style="width:200%">
+<img class="mySlides" src="ya.jpg" style="width:200%">
+<img class="mySlides" src="tsc.jpg" style="width:200%">
+<img class="mySlides" src="bus.jpg" style="width:200%">
+<img class="mySlides" src="mo.jpg" style="width:200%">
+<img class="mySlides" src="doy.jpg" style="width:200%">
+<img class="mySlides" src="fbs.jpg" style="width:200%">
+<img class="mySlides" src="iba.jpg" style="width:200%">
+<img class="mySlides" src="du.jpg" style="width:100%">
+<img class="mySlides" src="ga.jpg" style="width:200%">
+<img class="mySlides" src="ef.jpg" style="width:200%">
+<img class="mySlides" src="abc.jpg" style="width:200%">
+<img class="mySlides" src="car.jpg" style="width:200%">
+<img class="mySlides" src="ra.jpg" style="width:200%">
+<img class="mySlides" src="ya.jpg" style="width:200%">
+<img class="mySlides" src="tsc.jpg" style="width:200%">
+<img class="mySlides" src="bus.jpg" style="width:200%">
+<img class="mySlides" src="mo.jpg" style="width:200%">
+<img class="mySlides" src="doy.jpg" style="width:200%">
+<img class="mySlides" src="fbs.jpg" style="width:200%">
+<img class="mySlides" src="iba.jpg" style="width:200%">
+
+  <div class="mySlides w3-container w3-red">
+   
+  </div>
+  <div class="mySlides w3-container w3-red">
+    
+  </div>
+</div>
+
+<script>
+var slideIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none"; 
+    }
+    slideIndex++;
+    if (slideIndex > x.length) {slideIndex = 1} 
+    x[slideIndex-1].style.display = "block"; 
+    setTimeout(carousel, 1000); 
+}
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block title %}Book Table{% endblock %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<script>
+$(document).ready(function() {
+               $('select').material_select();
+               });
+
+</script>  
+  <br>
+<div class="container" align="left">
+  <div class="row valign-wrapper">
+    <div class="col s6 offset-s3 valign">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text" style="vertical-align: middle">
+           <div class="row">
+    <form method="post" action="/game/bookSuccess/{{game.id}}/"> {% csrf_token %}
+    <div class="center-align">
+    <div style="color:red">{{ message }} <br> </div>
+    </div>
+    <div class="center-align">
+    <small style="color:white"> <i> Required fields are marked with <sup>*</sup> </i> </small>
+    </div>
+    <section>
+    <div class="col s10 offset-s1">
+    <span class="card-title center-align">{{game.name}}</span>
+    </div>
+    <div class="row">
+           <div class="input-field col s10 offset-s1">
+           
+			           <select id="loungename" name="loungename">
+        <option value="">--Select Lounge--</option>
+     {% for lounges in lounge %}
+     <option value="{{lounges}}">{{lounges}}</option>
+     {% endfor %}
+     </select>
+ 
+           
+           <label for="loungename" data-error="Please enter a lounge" data-success="">
+           <span>Lounge<sup>*</sup>: </span>
+           
+           </label>
+           
+           </div>
+           <div class="row input-field col s10 offset-s1">
+           
+           <label>
+           <span>Start time<sup>*</sup>: </span>
+           
+           </label>
+           <br>
+           
+           </div>
+<div class="input-field col s8 offset-s2">
+    <div class="row">
+<input id="startdate" type="datetime-local" name="startdate" style="color: white;" required="" aria-required="true"/>
+</div>    
+</div>        
+			<div class="row input-field col s10 offset-s1">
+           
+           <label>
+           <span>End time<sup>*</sup>: </span>
+           
+           
+           </label>
+			<br>
+           
+           </div>
+<div class="input-field col s8 offset-s2">
+    <div class="row">
+<input id="enddate" type="datetime-local" name="enddate"   style="color: white;" required="" aria-required="true"/></div>           
+           </div>
+</div>
+</section>
+<div class="center-align">
+<button class="waves-effect waves-light btn" type="submit" >Book Table</button>
+</div>
+    </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}

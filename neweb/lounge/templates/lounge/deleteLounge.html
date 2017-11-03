@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+<!--{% block title %}Delete Lounge{% endblock %} -->
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+    
+form {
+    margin: 0 auto;
+    width: 500px;
+    padding: 1em;
+    border: 1px solid #FFFFFF;
+    border-radius: 1em;
+}
+
+div+div {
+    margin-top: 1em;
+}
+
+label span {
+    font: 1em consolas;
+    display: inline-block;
+    position: relative;
+    width: 120px;
+    text-align: left;
+    color: #FFFFFF;
+}
+
+input, textarea {
+    font: 1em consolas;
+    width: 250px;
+    box-sizing: border-box;
+    border: 1px solid #999;
+}
+
+input[type=checkbox], input[type=radio] {
+    width: auto;
+    border: none;
+}
+
+input:focus, textarea:focus {
+    border-color: #000;
+}
+
+textarea {
+    vertical-align: top;
+    height: 8em;
+    resize: vertical;
+}
+
+fieldset {
+    width: 250px;
+    box-sizing: border-box;
+    margin-left: 0px;
+    border: 1px solid #999;
+}
+
+select {
+    font: 1em consolas;
+    display: inline-block;
+    position: relative;
+    width: 250px;
+    text-align: left;
+}
+
+label {
+  position: relative;
+}
+
+label em {
+  position: relative;
+}
+
+
+
+
+</style>
+    </head>
+  <body>
+    
+    <form method="post" action="/lounge/deleteLounge/"> {% csrf_token %}
+    <div style="color:red">{{ warning }} <br> </div>
+    <small style="color:white"> <i> Required fields are marked with <sup>*</sup> </i> </small>
+    <section>
+    <h2>Lounge information</h2>
+    
+    <p>
+      <label for="id">
+        <span>Lounge ID<sup>*</sup>: </span>
+            
+      </label>
+      <input type="text" id="loungeid" name="loungeid">
+    </p>
+    <p>
+      
+    </p>
+</section>
+<button class="waves-effect waves-light btn" type="submit" >Delete Lounge</button>
+
+    </form>
+    <hr>
+  </body>
+</html>
+
+{% endblock %}

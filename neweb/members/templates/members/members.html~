@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+<!--{% block title %}Members{% endblock %} -->
+
+{% block content %}
+<style>
+#txt1 
+{
+    
+    font-size: 17px;
+}
+a
+{
+    color : white;
+}
+table.highlight tbody tr:hover {
+    background-color: #26a69a !important;
+}
+</style>
+
+<div style="display: inline-block;position: absolute; right: 130px; top:167px;";>
+<form method="POST" action="/members/search/">
+{% csrf_token %}
+<input class="browser-default" type="text" name="textfield" placeholder="Search with name or id.."><br>
+
+</form>
+
+</div>
+</div>
+<br>
+<div class="center-align">
+<div class="container">
+  <div class="row valign-wrapper">
+    <div class="col s8 offset-s2 valign">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">List of Members</span>
+
+
+<table class="highlight"> 
+
+<thread><tr> <th>ID</th><th>Name</th><th>Edit</th><th>Delete</th></tr></thread>
+<tbody>
+{% for members in member %}
+    <tr> <td><a>{{members.id}}</a></td><td><a id="txt1" href="/members/details/{{members.id}}">{{members.name}}<a></th><th><a href="/members/updateMember/{{members.id}}"><i class="small material-icons" style="color: #81c784">edit</i> </a></th><th><a href="/members/delete/{{members.id}}"><i class="small material-icons" style="color: #e57373">delete</i></a> </th></tr>
+  {% endfor %}
+  </tbody>
+  
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed-action-btn horizontal click-to-toggle">
+    <a href="/members/memberForm" class="btn-floating btn-large  waves-effect waves-light red">
+      <i class="large material-icons">add</i>
+    </a>
+  </div>
+{% endblock %}
+<hr>

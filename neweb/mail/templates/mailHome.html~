@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+<!--{% block title %}Members{% endblock %} -->
+
+{% block content %}
+<style>
+h2
+{
+    color: white;
+}
+h3
+{
+    color: white; 
+}
+button1 {
+    background-color: transparent;
+    background-repeat:no-repeat;
+    border: transparent;
+    cursor: pointer;
+    overflow: hidden;
+    outline: transparent;
+    color: white; 
+   text-decoration: none;
+padding: 4%;
+font-size: 20px;
+
+}
+p
+{
+color:white
+}
+small
+{
+color:white;
+
+}
+
+/*https://www.w3schools.com/css/tryit.asp?filename=trycss_form_search_anim*/
+
+input[type=text] {
+    width: 90px;
+    height: 40px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    font: 1em consolas;
+    padding: 12px 20px 12px 20px;
+    -webkit-transition: width 0.2s ease-in-out;
+    transition: width 0.2s ease-in-out;
+}
+
+input[type=text]:focus {
+
+    width: 100%;
+}
+
+</style>
+
+<div style="display: inline-block;position: absolute; right: 130px; top:167px;";>
+<form method="POST" action="/members/search/">
+{% csrf_token %}
+<button class = "btncls">Add Member</button></a><br>
+
+</form>
+
+
+{% endblock %}
+<hr>

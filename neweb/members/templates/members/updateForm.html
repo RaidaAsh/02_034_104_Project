@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% block title %}Update Member{% endblock %}
+
+{% block content %}
+
+    <script>
+   $(document).ready(function() {
+    $('select').material_select();
+  });
+  </script>
+  <body>
+  <div class="container">
+  <div class="row valign-wrapper">
+    <div class="col s8 offset-s2 valign">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text" style="vertical-align: middle">
+          <span class="card-title">Edit Member</span>
+<div class="row">
+    
+    <form method="post" action="/members/update/{{member.id}}/"> {% csrf_token %}
+    
+    <small style="color:white"> <i> Leave out the fields which do not require updating  </i> </small>
+    <div style="color:red">{{ warning }} <br> </div>
+    <section>
+    <div class="col s10 offset-s1">
+    <h2>Contact information</h2>
+  
+    <p>
+      <label for="name">
+        <span>Name: </span>
+            
+      </label>
+      <input type="text" id="name" name="username" value="{{member.name}}">
+    </p>
+    <p>
+      <label for="mail">
+        <span>E-mail: </span>
+      </label>
+      <input type="email" id="mail" name="usermail" value="{{member.email}}">
+    </p>
+    <p>
+      <label for="num">
+        <span>Contact no.: </span>
+      </label>
+      <input type="text" id="cellno" name="contactno" value="{{member.contact}}">
+    </p>
+    </div>
+</section>
+<section>
+<div class="col s10 offset-s1">
+    <h2>Personal information</h2>
+     <p>
+      <label for="present">
+        <span>Present Address: </span>
+        </label>
+      <input type="text" id="prad" name="userprad" value="{{member.presentAdress}}">
+    </p>
+     <p>
+      <label for="permanent">
+        <span>Permanent Address: </span>
+      </label>
+      <input type="text" id="pmad" name="userpmad" value="{{member.permanentAdress}}">
+    </p>
+     <p>
+      <label for="dept">
+        <span>Department: </span>
+      </label>
+      <input type="text" id="dept" name="userdept" value="{{member.dept}}">
+    </p>
+    <p>
+      <label for="post">
+        <span>Designation:</span>
+      </label>
+      <select id="post" name="userdesignation">
+        <option value="Professor">Professor</option>
+        <option value="Associate Professor">Associate Professor</option>
+        <option value="Assistant Professor">Assistant Professor</option>
+        <option value="Lecturer">Lecturer</option>
+        <option value="Other">Other</option>
+      </select>
+    </p>
+    <p>
+      <label for="stat">
+        <span>Status:</span>
+      </label>
+      <select id="stat" name="userstat">
+        <option value="Active">Active</option>
+        <option value="Inactive">Inactive</option>
+      </select>
+    </p>
+    <p>
+      <label for="type">
+        <span>Type:</span>
+      </label>
+      <select id="type" name="usertype">
+        <option value="General">General</option>
+        <option value="Privileged">Privileged</option>
+      </select>
+    </p>
+    </div>
+</section>
+<br>
+<button class="waves-effect waves-light btn" type="submit" >Update Member</button>
+
+    </form>
+    
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+  </body>
+</html>
+
+{% endblock %}

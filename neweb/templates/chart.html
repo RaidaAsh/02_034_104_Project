@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+<!--{% block title %}Charts{% endblock %} -->
+
+{% block content %}
+    {% load static %} 
+    <script type="text/javascript" src="{% static "fusioncharts/fusioncharts.js" %}"></script>
+    <script type="text/javascript" src="{% static "fusioncharts/themes/fusioncharts.theme.fint.js" %}"></script>
+  </head>
+  <body>
+	<br>
+    <div id="chart-1">{{ output|safe }}</div>
+  </body>
+{% endblock %}
+<hr>
